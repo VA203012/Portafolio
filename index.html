@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Sale - Ventas Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  
+    <audio id="click-sound" src="dragon-studio-mouse-click-405462.mp3" preload="auto"></audio>
+
+    <div id="particles-container"></div>
+
+    <div id="modal-recibo" class="modal-container hidden">
+        <div class="recibo-card">
+            <div class="recibo-header">
+                <h3>TICKET DE PEDIDO</h3>
+                <p>WORLD SALE OFFICIAL</p>
+            </div>
+            <div class="recibo-body">
+                <div class="recibo-item">
+                    <span>Item:</span>
+                    <strong id="recibo-producto">-</strong>
+                </div>
+                <div class="recibo-item">
+                    <span>Total:</span>
+                    <strong id="recibo-precio">-</strong>
+                </div>
+                <div class="recibo-nota">
+                    <p>Serás redirigido a WhatsApp para finalizar el pago por QR o transferencia.</p>
+                </div>
+            </div>
+            <div class="recibo-footer">
+                <button id="btn-confirmar-compra" class="confirm-btn">ENVIAR PEDIDO</button>
+                <button id="btn-cancelar-modal" class="cancel-btn">VOLVER</button>
+            </div>
+        </div>
+    </div>
+
+    <main class="main-container">
+        <header class="logo-section">
+            <div class="logo-wrapper">
+                <img src="ICON.png" alt="World Sale" class="main-logo">
+            </div>
+            <h1 class="brand-name">WORLD SALE</h1>
+            <p class="brand-tagline">VENTAS ONLINE</p>
+        </header>
+
+        <section class="menu-section" id="menu-principal">
+            <h2 class="section-title subtitle-low">Servicios Disponibles</h2>
+            <div class="menu-grid">
+                <div class="menu-card" id="card-diamantes">
+                    <div class="card-icon-container">
+                        <img src="diamantes.png" alt="Diamantes" class="item-icon">
+                    </div>
+                    <div class="card-content">
+                        <h3>Diamantes</h3>
+                        <p>Recarga directa por ID</p>
+                    </div>
+                </div>
+                <div class="menu-card" id="card-semanal">
+                    <div class="card-icon-container">
+                        <img src="semanal.png" alt="Tarjeta Semanal" class="item-icon">
+                    </div>
+                    <div class="card-content">
+                        <h3>Membresías</h3>
+                        <p>Tarjetas y beneficios VIP</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu-precios" class="menu-section hidden">
+            <button id="btn-volver" class="back-button">➣ Volver</button>
+            
+            <h3 class="group-label">LOS MÁS BUSCADOS</h3>
+            <div class="price-grid-diamonds">
+                <div class="price-card-grid popular" data-item="341 Diamantes" data-price="Bs 30.00" data-msj="Hola World Sale, quiero el paquete de 341 Diamantes por 30 bs">
+                    <span class="badge">POPULAR</span>
+                    <img src="diamantes.png" class="price-icon-v2">
+                    <span class="pack-name">341 Diamantes</span>
+                    <button class="buy-button-v2">Bs 30.00</button>
+                </div>
+                <div class="price-card-grid popular" data-item="572 Diamantes" data-price="Bs 45.00" data-msj="Hola World Sale, quiero el paquete de 572 Diamantes por 45 bs">
+                    <span class="badge">OFERTA</span>
+                    <img src="diamantes.png" class="price-icon-v2">
+                    <span class="pack-name">572 Diamantes</span>
+                    <button class="buy-button-v2">Bs 45.00</button>
+                </div>
+            </div>
+
+            <h3 class="group-label">CARGA ESTÁNDAR</h3>
+            <div class="price-grid-diamonds">
+                <div class="price-card-grid" data-item="110 Diamantes" data-price="Bs 10.00" data-msj="Hola World Sale, quiero el paquete de 110 Diamantes por 10 bs">
+                    <img src="diamantes.png" class="price-icon-v2">
+                    <span class="pack-name">110 Diamantes</span>
+                    <button class="buy-button-v2">Bs 10.00</button>
+                </div>
+                <div class="price-card-grid" data-item="1166 Diamantes" data-price="Bs 80.00" data-msj="Hola World Sale, quiero el paquete de 1166 Diamantes por 80 bs">
+                    <img src="diamantes.png" class="price-icon-v2">
+                    <span class="pack-name">1166 Diamantes</span>
+                    <button class="buy-button-v2">Bs 80.00</button>
+                </div>
+            </div>
+
+            <h3 class="group-label">PAQUETES ELITE</h3>
+            <div class="price-grid-diamonds elite-row">
+                <div class="price-card-grid elite" data-item="2389 Diamantes" data-price="Bs 160.00" data-msj="Hola World Sale, quiero el paquete de 2389 Diamantes por 160 bs">
+                    <span class="badge yellow">MAX AHORRO</span>
+                    <img src="diamantes.png" class="price-icon-v2">
+                    <span class="pack-name">2389 Diamantes</span>
+                    <button class="buy-button-v2">Bs 160.00</button>
+                </div>
+                <div class="price-card-grid elite" data-item="6160 Diamantes" data-price="Bs 400.00" data-msj="Hola World Sale, quiero el paquete de 6160 Diamantes por 400 bs">
+                    <img src="diamantes.png" class="price-icon-v2">
+                    <span class="pack-name">6160 Diamantes</span>
+                    <button class="buy-button-v2">Bs 400.00</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu-tarjetas" class="menu-section hidden">
+            <button id="btn-volver-tarjetas" class="back-button">➣ Volver</button>
+            
+            <div class="category-selector">
+                <div class="category-btn active" id="tab-membresias">
+                    <img src="semanal.png" class="cat-icon"><span>Tarjetas</span>
+                </div>
+                <div class="category-btn" id="tab-pases">
+                    <img src="semanal.png" class="cat-icon"><span>Pases</span>
+                </div>
+                <div class="category-btn" id="tab-otros">
+                    <img src="semanal.png" class="cat-icon"><span>Otros</span>
+                </div>
+            </div>
+
+            <div id="content-membresias" class="tab-content">
+                <div class="menu-grid">
+                    <div class="price-card" data-item="T. Semanal Básica" data-price="Bs 7.00" data-msj="Hola World Sale, quiero la T. Semanal básica por 7 bs">
+                        <div class="price-info"><img src="semanal.png" class="price-icon"><span>T. Semanal Básica</span></div>
+                        <button class="buy-button">Bs 7.00</button>
+                    </div>
+                    <div class="price-card" data-item="Tarjeta Semanal" data-price="Bs 18.00" data-msj="Hola World Sale, quiero la Tarjeta Semanal por 18 bs">
+                        <div class="price-info"><img src="semanal.png" class="price-icon"><span>Tarjeta Semanal</span></div>
+                        <button class="buy-button">Bs 18.00</button>
+                    </div>
+                    <div class="price-card" data-item="Tarjeta Mensual" data-price="Bs 85.00" data-msj="Hola World Sale, quiero la Tarjeta Mensual por 85 bs">
+                        <div class="price-info"><img src="semanal.png" class="price-icon"><span>Tarjeta Mensual</span></div>
+                        <button class="buy-button">Bs 85.00</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content-pases" class="tab-content hidden">
+                <div class="menu-grid">
+                    <div class="price-card" data-item="Pass Booyah" data-price="Bs 25.00" data-msj="Hola World Sale, quiero el Pass Booyah por 25 bs">
+                        <div class="price-info"><img src="semanal.png" class="price-icon"><span>Pass Booyah</span></div>
+                        <button class="buy-button">Bs 25.00</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content-otros" class="tab-content hidden">
+                <p class="subtitle-low">Próximamente...</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="index.js"></script>
+</body>
+</html>

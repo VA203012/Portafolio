@@ -1,0 +1,346 @@
+/* BLOQUE 1: Base y Fondo - CORRECCIÓN AZUL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent; /* ELIMINA EL CUADRO AZUL EN MÓVILES */
+    outline: none;
+}
+
+body {
+    background-color: #000000;
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    min-height: 100vh;
+    overflow-x: hidden; 
+}
+
+/* BLOQUE 2: Capa fija (Límite Visual Inferior) */
+body::after {
+    content: "";
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 15%; 
+    background: linear-gradient(to top, #000000 80%, transparent);
+    z-index: 999;
+    pointer-events: none;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    padding-bottom: 100px; 
+    position: relative;
+    z-index: 10;
+}
+
+/* BLOQUE 3: Logo y Tagline */
+.logo-section { margin-bottom: 20px; }
+.main-logo { width: 100px; height: auto; }
+.brand-name { font-size: 26px; letter-spacing: 2px; }
+.brand-tagline { font-size: 12px; color: #888; letter-spacing: 3px; }
+
+/* BLOQUE 4: Espaciado y Subtítulo */
+.menu-section { margin-top: 60px; }
+.subtitle-low { font-size: 14px; color: #888; margin-bottom: 30px; font-weight: 300; letter-spacing: 1px; }
+
+/* ---------------------------------------------------- */
+/* BLOQUE 5: Menú Principal (Botones de Entrada) */
+/* ---------------------------------------------------- */
+.menu-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menu-card {
+    background-color: #1A1A1A; 
+    padding: 20px 25px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid #2B2B2B;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.menu-card:active {
+    transform: scale(0.96);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.menu-card .card-icon-container {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-card .item-icon { width: 100%; height: auto; }
+.menu-card .card-content { text-align: left; }
+.menu-card .card-content h3 { font-size: 16px; margin-bottom: 2px; }
+.menu-card .card-content p { font-size: 11px; color: #888; }
+
+/* ---------------------------------------------------- */
+/* BLOQUE 6: Grid de Diamantes (Animación Corregida) */
+/* ---------------------------------------------------- */
+.group-label {
+    font-size: 10px;
+    color: #444;
+    text-align: left;
+    margin: 40px 0 15px 5px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.price-grid-diamonds {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.price-card-grid {
+    background-color: #0F0F0F;
+    border: 1px solid #2B2B2B;
+    border-radius: 20px;
+    padding: 25px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease;
+    cursor: pointer;
+}
+
+/* EFECTO DE PRESIÓN PARA EL GRID */
+.price-card-grid:active {
+    transform: scale(0.94);
+    border-color: #FFFFFF;
+    background-color: #151515;
+}
+
+.price-icon-v2 { width: 35px; height: auto; }
+.pack-name { font-size: 12px; font-weight: 400; color: #ccc; text-transform: uppercase; letter-spacing: 1px; }
+
+.buy-button-v2 {
+    background: #1A1A1A;
+    color: #fff;
+    border: 1px solid #333;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    width: 95%;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: background 0.2s;
+}
+
+.buy-button-v2:active {
+    background: #FFFFFF;
+    color: #000000;
+}
+
+.price-card-grid.elite { border-color: #444; }
+
+/* ---------------------------------------------------- */
+/* BLOQUE 7: Etiquetas (Badges) */
+/* ---------------------------------------------------- */
+.badge {
+    position: absolute;
+    top: -7px;
+    background: #fff;
+    color: #000;
+    font-size: 7px;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    z-index: 5;
+}
+.badge.yellow { background: #FFFFFF; }
+
+/* ---------------------------------------------------- */
+/* BLOQUE 8: Membresías (Botones Largos) */
+/* ---------------------------------------------------- */
+.tab-content .price-card {
+    background-color: #0F0F0F; 
+    padding: 15px 20px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #2B2B2B;
+    margin-bottom: 15px;
+    transition: transform 0.2s;
+}
+
+.tab-content .price-card:active { transform: scale(0.98); }
+.tab-content .price-info { display: flex; align-items: center; gap: 10px; }
+.tab-content .price-icon { width: 22px; height: auto; }
+.tab-content .price-info span { font-size: 13px; color: #ccc; }
+.tab-content .buy-button { background: none; color: #fff; border: none; font-size: 12px; font-weight: 600; }
+
+/* ---------------------------------------------------- */
+/* BLOQUE 9: Recibo / Modal de Confirmación - ESTRUCTURA VERTICAL */
+/* ---------------------------------------------------- */
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.recibo-card {
+    background: #0F0F0F;
+    width: 85%;
+    max-width: 320px;
+    border-radius: 24px;
+    border: 1px solid #2B2B2B;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.03);
+}
+
+.recibo-header h3 { font-size: 13px; letter-spacing: 2px; margin-bottom: 5px; }
+.recibo-header p { font-size: 9px; color: #555; margin-bottom: 25px; }
+
+.recibo-body {
+    border-top: 1px dashed #2B2B2B;
+    border-bottom: 1px dashed #2B2B2B;
+    padding: 20px 0;
+    margin-bottom: 25px;
+}
+
+.recibo-item { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 14px; }
+.recibo-item span { color: #888; }
+.recibo-nota { font-size: 9px; color: #555; line-height: 1.5; margin-bottom: 15px; }
+
+/* CONTENEDOR DE BOTONES EN COLUMNA */
+.recibo-footer {
+    display: flex;
+    flex-direction: column; /* PONE UNO ABAJO DEL OTRO */
+    align-items: center;
+    gap: 15px; /* ESPACIO PERFECTO ENTRE BOTONES */
+}
+
+.confirm-btn {
+    width: 100%; /* OCUPA TODO EL ANCHO DISPONIBLE */
+    background: #fff;
+    color: #000;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.confirm-btn:active { transform: scale(0.95); }
+
+/* ESTILO "CANCELAR" ABAJO Y CENTRADO */
+.cancel-btn {
+    background: none;
+    border: none;
+    color: #555;
+    font-size: 11px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+    padding: 10px; /* ÁREA DE CLIC MÁS CÓMODA */
+}
+
+.cancel-btn:active {
+    opacity: 1;
+    letter-spacing: 4px;
+    color: #FFFFFF;
+}
+
+/* ---------------------------------------------------- */
+/* ---------------------------------------------------- */
+/* BLOQUE 10: Humo y Visibilidad (Optimizado) */
+/* ---------------------------------------------------- */
+#particles-container { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh; 
+    z-index: -1; 
+    pointer-events: none; 
+    overflow: hidden; /* Evita scrolls accidentales */
+}
+
+.light-leak { 
+    position: absolute; 
+    border-radius: 50%; 
+    /* Subimos la opacidad a 0.12 para que se note más en móviles */
+    background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 70%); 
+    filter: blur(50px); 
+    animation: smoke-float infinite ease-in-out; 
+    will-change: transform, opacity; /* Ayuda al rendimiento del cel */
+}
+
+@keyframes smoke-float {
+    0% { 
+        opacity: 0; 
+        transform: scale(0.8) translateY(0); 
+    }
+    50% { 
+        opacity: 0.4; /* Punto máximo de visibilidad */
+    }
+    100% { 
+        opacity: 0; 
+        transform: scale(2) translate(20px, -40px); 
+    }
+}
+
+.hidden { display: none !important; }
+
+/* ---------------------------------------------------- */
+/* BLOQUE 11: Selector Categorías y Volver General */
+/* ---------------------------------------------------- */
+.category-selector { display: flex; gap: 8px; margin-bottom: 30px; }
+.category-btn { flex: 1; background: #0F0F0F; border: 1px solid #2B2B2B; border-radius: 12px; padding: 12px; display: flex; flex-direction: column; align-items: center; gap: 5px; cursor: pointer; transition: 0.2s; }
+.category-btn.active { border-color: #fff; background: #1A1A1A; }
+.category-btn:active { transform: scale(0.95); }
+.category-btn span { font-size: 8px; color: #888; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;}
+.cat-icon { width: 22px; height: auto; }
+
+.back-button { 
+    color: #fff; 
+    background: none; 
+    border: none; 
+    font-size: 13px; 
+    margin-bottom: 20px; 
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 0.3s;
+    letter-spacing: 1px;
+}
+
+.back-button:active {
+    opacity: 1;
+    letter-spacing: 2px;
+    transform: translateX(-5px);
+}
